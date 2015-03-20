@@ -7,9 +7,20 @@ module Eman
   class CLI < Thor
 
     desc "controller", "name a controller"
-
     def controller
       generator = Eman::NameGenerator.new('Controller')
+      generator.run
+    end
+
+    desc "service", "name a service"
+    def service
+      generator = Eman::NameGenerator.new('Service')
+      generator.run
+    end
+
+    desc "model", "name a model"
+    def model
+      generator = Eman::NameGenerator.new('Model')
       generator.run
     end
 

@@ -12,11 +12,19 @@ module Eman
     end
 
     def camel_case!
-      "#{components_camelized}#{type.capitalize}"
+      if is_model_name?
+        "#{components_camelized}"
+      else
+        "#{components_camelized}#{type.capitalize}"
+      end
     end
 
     def snake_case!
-      "#{components_snakified}_#{type.downcase}"
+      if is_model_name?
+        "#{components_snakified}"
+      else
+        "#{components_snakified}_#{type.downcase}"
+      end
     end
 
     private
@@ -35,6 +43,10 @@ module Eman
 
       def is_controller_name?
         type == 'Controller'
+      end
+
+      def is_model_name?
+        type == 'Model'
       end
   end
 end

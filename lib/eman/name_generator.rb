@@ -12,7 +12,7 @@ module Eman
 
     def run
       ask_resource
-      ask_verb unless type == 'Controller'
+      ask_verb if type == 'Service'
       print_name
     end
 
