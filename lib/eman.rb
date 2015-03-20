@@ -1,5 +1,7 @@
+$:.unshift File.expand_path('../eman', __FILE__)
+
 require "eman/version"
 
 module Eman
-  # Your code goes here...
+  autoload :NameGenerator, 'name_generator'
 end

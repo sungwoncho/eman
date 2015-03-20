@@ -1,7 +1,19 @@
-require "thor"
+#!/usr/bin/env ruby
 
-class Eman < Thor
-  def ping
-    puts "pong"
+require "thor"
+require "eman"
+
+module Eman
+  class CLI < Thor
+
+    desc "controller", "name a controller"
+
+    def controller
+      generator = Eman::NameGenerator.new('controller')
+      generator.run
+    end
+
   end
 end
+
+Eman::CLI.start(ARGV)
