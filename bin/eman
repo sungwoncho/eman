@@ -1,0 +1,7 @@
+require "thor"
+
+class Eman < Thor
+  def ping
+    puts "pong"
+  end
+end
