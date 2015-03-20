@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.2.0"
 
   spec.add_dependency "thor"
+  spec.add_dependency "activesupport"
 end

@@ -1,7 +1,8 @@
 module Eman
   class NameGenerator
 
-    attr_accessor :resource, :verb, :type
+    attr_accessor :resource, :verb
+    attr_reader :type
 
     def initialize(type)
       @type = type
@@ -11,7 +12,7 @@ module Eman
 
     def run
       ask_resource
-      ask_verb
+      ask_verb unless type == 'Controller'
       print_name
     end
 
@@ -30,7 +31,7 @@ module Eman
       def print_name
         name = ::Eman::NameFormatter.new(@resource, @verb, @type).camel_case!
 
-        puts name
+        puts "#{type} name : '#{name}'"
       end
   end
 end

@@ -2,10 +2,21 @@ require "spec_helper"
 
 RSpec.describe Eman::NameFormatter do
 
-  describe '#initialize' do
-    it 'breaks the components into smallest parts' do
-      formatter = Eman::NameFormatter.new('Alarm clock', 'Operating', 'Controller')
-      expect(formatter.components).to eq ['Alarm', 'clock', 'Operating']
+  context 'when type is controller' do
+    describe '#initialize' do
+      it 'pluralizes the resource' do
+        formatter = Eman::NameFormatter.new('Alarm clock', 'Operating', 'Controller')
+        expect(formatter.resource).to eq 'Alarm clocks'
+      end
+    end
+  end
+
+  context 'when type is not controller' do
+    describe '#initialize' do
+      it 'does not pluralize the resource' do
+        formatter = Eman::NameFormatter.new('Alarm clock', 'Operating', 'Service')
+        expect(formatter.resource).to eq 'Alarm clock'
+      end
     end
   end
 

@@ -9,7 +9,7 @@ module Eman
     desc "controller", "name a controller"
 
     def controller
-      generator = Eman::NameGenerator.new('controller')
+      generator = Eman::NameGenerator.new('Controller')
       generator.run
     end
 
