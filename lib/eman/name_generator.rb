@@ -1,18 +1,20 @@
 module Eman
   class NameGenerator
 
-    attr_accessor :resource, :verb
+    attr_accessor :resource, :verb, :name
     attr_reader :type
 
     def initialize(type)
       @type = type
       @resource = ''
       @verb = ''
+      @name = ''
     end
 
     def run
       ask_resource
       ask_verb if type == 'Service'
+      generate_name
       print_name
     end
 
@@ -24,13 +26,15 @@ module Eman
       end
 
       def ask_verb
-        puts "What is the primary action you are performing on this object/resource?"
+        puts "What is the primary action you are performing on '#{resource}'?"
         @verb = $stdin.gets.chomp
       end
 
-      def print_name
-        name = ::Eman::NameFormatter.new(@resource, @verb, @type).camel_case!
+      def generate_name
+        @name = ::Eman::NameFormatter.new(@resource, @verb, @type).camel_case!
+      end
 
+      def print_name
         puts "#{type} name : '#{name}'"
       end
   end
