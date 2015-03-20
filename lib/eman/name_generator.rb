@@ -12,7 +12,7 @@ module Eman
     def run
       ask_resource
       ask_verb
-      generate_name
+      print_name
     end
 
     private
@@ -27,8 +27,10 @@ module Eman
         @verb = $stdin.gets.chomp
       end
 
-      def generate_name
-        puts "#{resource}_#{verb}_#{type}"
+      def print_name
+        name = ::Eman::NameFormatter.new(@resource, @verb, @type).camel_case!
+
+        puts name
       end
   end
 end
