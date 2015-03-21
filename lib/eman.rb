@@ -5,4 +5,6 @@ require "version"
 module Eman
   autoload :NameGenerator, 'name_generator'
   autoload :NameFormatter, 'name_formatter'
+  autoload :Recommender, 'recommender'
+  autoload :DictionaryService, 'dictionary_service'
 end
