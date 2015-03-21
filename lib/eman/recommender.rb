@@ -33,11 +33,17 @@ module Eman
       def assemble_words
         recommended_name = []
 
-        @words_hash.each do |key, val|
-          recommended_name << val.sample
-        end
+        if @words_hash.values.flatten.length != @words.length
 
-        recommended_name || []
+          @words_hash.each do |key, val|
+            recommended_name << val.sample
+          end
+
+          if recommended_name
+            ::Eman::NameFormatter.new(recommended_name.join(', '), type).camel_case!
+          end
+
+        end
       end
   end
 end

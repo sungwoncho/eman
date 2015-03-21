@@ -5,7 +5,7 @@ module Eman
 
     attr_accessor :type, :resource, :verb
 
-    def initialize(resource, verb, type)
+    def initialize(resource, verb='', type)
       @type = type
       @resource = is_controller_name? ? resource.pluralize : resource
       @verb = verb

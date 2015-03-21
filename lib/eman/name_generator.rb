@@ -2,14 +2,14 @@ module Eman
   class NameGenerator
 
     attr_accessor :resource, :verb, :name
-    attr_reader :type
+    attr_reader :type, :recommended_name
 
     def initialize(type)
       @type = type
       @resource = ''
       @verb = ''
       @name = ''
-      @recommendation = ''
+      @recommended_name = ''
     end
 
     def run
@@ -33,10 +33,12 @@ module Eman
 
       def generate_name
         @name = ::Eman::NameFormatter.new(@resource, @verb, @type).camel_case!
+        @recommended_name = ::Eman::Recommender.new(@resource, @verb, @type).recommend_name
       end
 
       def print_name
         puts "#{type} name : '#{name}'"
+        puts "Further suggestion: #{recommended_name}" if recommended_name
       end
   end
 end
