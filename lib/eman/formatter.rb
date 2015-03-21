@@ -1,7 +1,7 @@
 require "active_support/inflector"
 
 module Eman
-  class NameFormatter
+  class Formatter
 
     attr_accessor :type, :resource, :verb
 

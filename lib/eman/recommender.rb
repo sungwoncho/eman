@@ -2,7 +2,7 @@ module Eman
   class Recommender
 
     attr_accessor :words_hash, :type
-    attr_reader :name_generator, :words
+    attr_reader :generator, :words
 
     def initialize(*words, type)
       @type = type
@@ -40,7 +40,7 @@ module Eman
           end
 
           if recommended_name
-            ::Eman::NameFormatter.new(recommended_name.join(', '), type).camel_case!
+            ::Eman::Formatter.new(recommended_name.join(', '), type).camel_case!
           end
 
         end

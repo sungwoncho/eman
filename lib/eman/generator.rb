@@ -1,5 +1,5 @@
 module Eman
-  class NameGenerator
+  class Generator
 
     attr_accessor :resource, :verb, :name
     attr_reader :type, :recommended_name
@@ -32,7 +32,7 @@ module Eman
       end
 
       def generate_name
-        @name = ::Eman::NameFormatter.new(@resource, @verb, @type).camel_case!
+        @name = ::Eman::Formatter.new(@resource, @verb, @type).camel_case!
         @recommended_name = ::Eman::Recommender.new(@resource, @verb, @type).recommend_name
       end
 
