@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Eman::VERSION
   spec.authors       = ["Sung Won Cho"]
   spec.email         = ["mikeswcho@gmail.com"]
-  spec.summary       = %q{Name that thing.}
-  spec.description   = %q{Eman helps you name that thing.}
-  spec.homepage      = ""
+  spec.summary       = %q{Easily name your controller, model, and service.}
+  spec.description   = %q{Easily name your controller, model, and service, with some further recommendations.}
+  spec.homepage      = "https://github.com/sungwoncho/eman"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

@@ -1,31 +1,28 @@
 # Eman
 
-TODO: Write a gem description
+Easily name your controller, model, and service. Let Eman recommend you good names.
+
+## Why?
+
+Well named files help your codebase to become more maintainable in the long run.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'eman'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install the gem:
 
     $ gem install eman
 
+
 ## Usage
 
-TODO: Write usage instructions here
+Simply run the following commands as you see fit:
+
+    $ emac controller
+    $ emac model
+    $ emac service
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/eman/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+### Recommendation system
+
+Help us improve our recommendation system. Simply add new, relevant words in the dictionary YAML files.
