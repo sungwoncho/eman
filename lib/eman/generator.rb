@@ -1,15 +1,11 @@
 module Eman
   class Generator
 
-    attr_accessor :resource, :verb, :name
-    attr_reader :type, :recommended_name
+    attr_accessor :resource, :verb, :name, :recommended_name
+    attr_reader :type
 
     def initialize(type)
       @type = type
-      @resource = ''
-      @verb = ''
-      @name = ''
-      @recommended_name = ''
     end
 
     def run
@@ -17,6 +13,10 @@ module Eman
       ask_verb if type == 'Service'
       generate_name
       print_name
+    end
+
+    def inputs
+      [resource, verb].compact.flat_map(&:split)
     end
 
     private
@@ -32,8 +32,8 @@ module Eman
       end
 
       def generate_name
-        @name = ::Eman::Formatter.new(@resource, @verb, @type).camel_case!
-        @recommended_name = ::Eman::Recommender.new(@resource, @verb, @type).recommend_name
+        @name = Eman::Formatter.new(self).camel_case!
+        @recommended_name = Eman::Recommender.new(self).recommend_name
       end
 
       def print_name

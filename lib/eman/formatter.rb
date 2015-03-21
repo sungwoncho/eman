@@ -3,46 +3,42 @@ require "active_support/inflector"
 module Eman
   class Formatter
 
-    attr_accessor :type, :resource, :verb
-
-    def initialize(resource, verb='', type)
-      @type = type
-      @resource = is_controller_name? ? resource.pluralize : resource
-      @verb = verb
+    def initialize(generator)
+      @generator = generator
     end
 
     def camel_case!
       if is_model_name?
-        "#{components_camelized}"
+        "#{inputs_camelized}"
       else
-        "#{components_camelized}#{type.capitalize}"
+        "#{inputs_camelized}#{type.capitalize}"
       end
     end
 
     def snake_case!
       if is_model_name?
-        "#{components_snakified}"
+        "#{inputs_snakified}"
       else
-        "#{components_snakified}_#{type.downcase}"
+        "#{inputs_snakified}_#{type.downcase}"
       end
     end
 
     private
 
-      def components
-        [resource, verb].flat_map(&:split)
+      def inputs
+        @generator.inputs
       end
 
-      def components_camelized
-        components.collect(&:capitalize).join
+      def type
+        @generator.type
       end
 
-      def components_snakified
-        components.collect(&:downcase).join('_')
+      def inputs_camelized
+        inputs.collect(&:capitalize).join
       end
 
-      def is_controller_name?
-        type == 'Controller'
+      def inputs_snakified
+        inputs.collect(&:downcase).join('_')
       end
 
       def is_model_name?
