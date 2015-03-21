@@ -38,7 +38,7 @@ module Eman
 
       def print_name
         puts "#{type} name : '#{name}'"
-        puts "Further suggestion: #{recommended_name}" if recommended_name
+        puts "Further suggestion: '#{recommended_name}'" if recommended_name
       end
   end
 end

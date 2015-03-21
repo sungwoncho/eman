@@ -1,14 +1,22 @@
 module Eman
   class Recommender
 
-    attr_accessor :words_hash, :type
-    attr_reader :generator, :words
+    attr_reader :generator
 
-    def initialize(*words, type)
-      @type = type
-      @words = words.flat_map(&:split)
-      @words_hash = Hash.new
-      set_words_hash
+    def initialize(generator)
+      @generator = generator
+    end
+
+    def inputs
+      @inputs ||= @generator.inputs
+    end
+
+    def type
+      @type ||= @generator.type
+    end
+
+    def words_hash
+      @words_hash ||= Hash[ inputs.collect { |x| [x, []] } ]
     end
 
     def recommend_name
@@ -18,29 +26,28 @@ module Eman
 
     private
 
-      def set_words_hash
-        @words.each { |w| words_hash[w] = Array.new [w] }
-      end
-
       def fetch_similar_words
-        @words.each do |w|
-          synonyms = Dictionary.find_similar(w)
+        inputs.each do |i|
+          synonyms = Dictionary.find_similar(i)
 
-          synonyms.each { |s| @words_hash[w] << s } if synonyms.any?
+          synonyms.each { |s| words_hash[i] << s } if synonyms.any?
         end
       end
 
       def assemble_words
         recommended_name = []
 
-        if @words_hash.values.flatten.length != @words.length
+        if words_hash.values.flatten.length != inputs.length
 
-          @words_hash.each do |key, val|
+          words_hash.each do |key, val|
             recommended_name << val.sample
           end
 
-          if recommended_name
-            ::Eman::Formatter.new(recommended_name.join(', '), type).camel_case!
+          if recommended_name.any?
+            recommended = Eman::Generator.new(type)
+            recommended.resource = recommended_name.join(' ')
+
+            Eman::Formatter.new(recommended).camel_case!
           end
 
         end
