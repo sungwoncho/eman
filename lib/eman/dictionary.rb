@@ -20,7 +20,7 @@ module Eman
 
       def self.fetch_words(index)
         words_list = YAML.load_file(WORDS_FILE)
-        words_list[index]
+        words_list[index] || []
       end
 
   end

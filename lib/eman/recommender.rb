@@ -19,14 +19,14 @@ module Eman
     private
 
       def set_words_hash
-        @words.each { |w| words_hash[w] = Array.new }
+        @words.each { |w| words_hash[w] = Array.new [w] }
       end
 
       def fetch_similar_words
         @words.each do |w|
           synonyms = Dictionary.find_similar(w)
 
-          synonyms.each { @words_hash[w] << s }
+          synonyms.each { |s| @words_hash[w] << s } if synonyms.any?
         end
       end
 
@@ -37,7 +37,7 @@ module Eman
           recommended_name << val.sample
         end
 
-        return recommended_name
+        recommended_name || []
       end
   end
 end

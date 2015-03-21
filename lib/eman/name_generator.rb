@@ -9,6 +9,7 @@ module Eman
       @resource = ''
       @verb = ''
       @name = ''
+      @recommendation = ''
     end
 
     def run
