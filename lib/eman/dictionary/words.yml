@@ -1,2 +1,6 @@
 1: ['user', 'customer', 'client', 'buyer']
 2: ['measure', 'benchmark', 'calculate', 'count']
+3: ['message', 'conversation', 'notification', 'chat']
+4: ['registration', 'enrollment', 'booking']
+5: ['purchase', 'buy', 'acquisition', 'shopping']
+6: ['post', 'thread']
