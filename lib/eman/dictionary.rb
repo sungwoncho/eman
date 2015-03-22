@@ -6,8 +6,8 @@ module Eman
     INDICES_FILE = File.expand_path('../dictionary/indices.yml', __FILE__)
     WORDS_FILE = File.expand_path('../dictionary/words.yml', __FILE__)
 
-    def self.find_similar(w)
-      index = fetch_index(w)
+    def self.find_similar(word)
+      index = fetch_index(word)
       fetch_words(index)
     end
 
