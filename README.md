@@ -28,4 +28,4 @@ Simply run the following commands as you see fit:
 
 ### Recommendation system
 
-Help us improve our recommendation system. Simply add new, relevant words in the dictionary YAML files.
+Help us improve our recommendation system by adding new entries in the internal dictionary. See [this wiki](https://github.com/sungwoncho/eman/wiki/Internal-Dictionary) for more information.
