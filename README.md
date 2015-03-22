@@ -1,6 +1,7 @@
 # Eman
 
 [![Build Status](https://travis-ci.org/sungwoncho/eman.svg?branch=master)](https://travis-ci.org/sungwoncho/eman)
+[![Code Climate](https://codeclimate.com/github/sungwoncho/eman/badges/gpa.svg)](https://codeclimate.com/github/sungwoncho/eman)
 
 Easily name your controller, model, and service. Let Eman recommend you good names.
 
