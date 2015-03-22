@@ -47,7 +47,7 @@ module Eman
             recommended = Eman::Generator.new(type)
             recommended.resource = recommended_name.join(' ')
 
-            Eman::Formatter.new(recommended).camel_case!
+            recommended
           end
 
         end

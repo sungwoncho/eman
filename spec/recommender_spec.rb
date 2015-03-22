@@ -21,4 +21,22 @@ RSpec.describe Eman::Recommender do
       expect(@formatter.words_hash).to eq({ 'Train' => [], 'Conductor' => [], 'Whistling' => [] })
     end
   end
+
+  describe '#recommend_name' do
+    it 'recommends a name' do
+      set_up_custom_dictionary
+
+      generator = Eman::Generator.new('Controller')
+      generator.resource = 'deep'
+
+      recommender = Eman::Recommender.new(generator)
+
+      puts recommender.words_hash
+
+      recommended_name = recommender.recommend_name
+
+      puts recommender.words_hash
+      expect(recommended_name.resource).to eq 'house'
+    end
+  end
 end
