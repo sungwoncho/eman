@@ -23,12 +23,12 @@ module Eman
 
       def ask_resource
         puts "What is the resource that you are dealing with? (e.g. User, Session, Order, etc.)"
-        @resource = $stdin.gets.chomp
+        @resource = $stdin.gets.chomp.downcase
       end
 
       def ask_verb
         puts "What is the primary action you are performing on '#{resource}'?"
-        @verb = $stdin.gets.chomp
+        @verb = $stdin.gets.chomp.downcase
       end
 
       def generate_name
