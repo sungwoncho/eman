@@ -24,6 +24,8 @@ Simply run the following commands as you see fit:
     $ emac model
     $ emac service
 
+Eman will ask you a question or two, and spit out a name, with a further recommendation.
+
 ## Contributing
 
 ### Recommendation system
