@@ -1,5 +1,7 @@
 # Eman
 
+[![Build Status](https://travis-ci.org/sungwoncho/eman.svg?branch=master)](https://travis-ci.org/sungwoncho/eman)
+
 Easily name your controller, model, and service. Let Eman recommend you good names.
 
 ## Why?
