@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require "thor"
 require "eman"
 
@@ -8,19 +6,19 @@ module Eman
 
     desc "controller", "name a controller"
     def controller
-      generator = Eman::NameGenerator.new('Controller')
+      generator = Eman::Generator.new('Controller')
       generator.run
     end
 
     desc "service", "name a service"
     def service
-      generator = Eman::NameGenerator.new('Service')
+      generator = Eman::Generator.new('Service')
       generator.run
     end
 
     desc "model", "name a model"
     def model
-      generator = Eman::NameGenerator.new('Model')
+      generator = Eman::Generator.new('Model')
       generator.run
     end
 
