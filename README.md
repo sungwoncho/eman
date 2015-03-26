@@ -20,9 +20,9 @@ Install the gem:
 
 Simply run the following commands as you see fit:
 
-    $ emac controller
-    $ emac model
-    $ emac service
+    $ eman controller
+    $ eman model
+    $ eman service
 
 Eman will ask you a question or two, and spit out a name, with a further recommendation.
 
